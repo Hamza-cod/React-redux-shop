@@ -1,17 +1,18 @@
-// import { useState } from 'react'
-
-
-import { H1 } from './styles/test'
-
+import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import { Header } from './components/Header'
+import { GlobalStyle } from './styles/GolobalStyle'
+import { ProductDetails } from './components/productDetails'
+import ProductList from './components/ProductList';
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
-    <>
-      <H1 color='#ba3838'>
-        hello
-      </H1>
-    </>
+    <BrowserRouter>
+    <GlobalStyle/>
+      <Header/>
+      <Routes>
+        <Route path='/' Component={ProductList}/>
+        <Route path='/detail/:productId' Component={ProductDetails}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
